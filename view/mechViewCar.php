@@ -4,8 +4,6 @@ session_start();
     header("location:index.php");
   }
 
-
-
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -176,14 +174,14 @@ session_start();
 					<!-- header toggler -->
                     <span class="toggle_menu"><span></span></span>
 </header>	
-		
+								
 <section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
 					<div class="divider-3 d-none d-lg-block"></div>
 					<div class="container">
 						<div class="row">
 
 							<div class="col-md-12">
-								<h1 class="bold text-center text-lg-left">Car Details</h1>
+							<h4 id="reply-title" class="fw-700 comment-reply-title">Car<span class="text-gradient">Details</span></h4>
 							</div>
 
 						</div>
@@ -192,9 +190,11 @@ session_start();
 
 
 			</div>
-<?php
-
-?>
+			?>
+<?php include("../controller/getAllSr.php");
+		foreach ($rows as $row){
+		
+	?>
 
 			<section class="ls s-py-60 s-py-lg-100 s-py-xl-150 c-gutter-60">
 				<div class="container">
@@ -202,29 +202,31 @@ session_start();
 						<main class="offset-lg-1 col-lg-10">
 							<article class="vertical-item post type-event status-publish format-standard has-post-thumbnail events-post single-post">
 								<div class="item-media post-thumbnail rounded-top">
-									<img src="images/gallery/04.jpg" alt="">
+								<?php echo	"<img src='../controller/images/".$row['vehicle_image']."'>"; ?>
 								</div>
 								
 								<div class="item-content">
 									<div class="divider-7"></div>
 									<div class="entry-meta item-meta color-darkgrey mb-20">
-										<i class="fa fa-calendar color-main"></i> <span>March 12, 2018</span>
-										<i class="fa fa-map-marker color-main"></i> <span>Consetetur Sadipscing Eitr           </span>
+										<i class="fa fa-calendar color-main"></i> <span><?php echo $row['service_date'];?></span>
+										<i class="fa fa-map-marker color-main"></i> <span><?php echo $row['city'];?></span>
 										 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									
-									
+										 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										
 										 </span>
-										<a href='#modalLoginForm' data-toggle = "modal"  class='btn btn-small btn-outline-maincolor btn-appointment' >Send Service Request</a> 
+										<a href='motoristAddServiceReq.php?i'  class='btn btn-small btn-outline-maincolor btn-appointment' >Send Qoute</a> 
 									</div>
 									<!-- .entry-meta -->
 									<hr>
 
 									<div class="entry-content">
 										<p class="excerpt">
-											At vero eos accusam justo duo dolores et rebum clita kasd gubergren nosea takimata sanctus est dolor sit
-											amet
+											<span><h6>	Car Brand: <?php echo strtoupper($row['vehicle_brand']);?>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											Car Model :<?php echo strtoupper($row['vehicle_model']);?>
+											</h6></span>
 										</p>
 
 										<p>
@@ -253,10 +255,10 @@ session_start();
 								</div>
 								<!-- .item-content -->
 							</article>
-
+		<?php }?>
 
 							<div id="comments" class="post-comments comments-area rounded">
-								<h4 id="reply-title" class="fw-700 comment-reply-title">Leave<span class="text-gradient">Comment</span></h4>
+								<h4 id="reply-title" class="fw-700 comment-reply-title">Car<span class="text-gradient">History</span></h4>
 
 								<div id="respond" class="comment-respond ls d-flex">
 									<form action="http://webdesign-finder.com/" method="post" id="commentform" class="comment-form" novalidate="">
@@ -427,57 +429,7 @@ session_start();
 				</div>
 			</section>
 
-		<!-- modal-->
-		<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="modalLoginForm" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="row c-gutter-0">
-			<form action="../controller/addServiceRequestRespon.php" method="get"></form>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span>×</span>
-				</button>
-				<div class="col-6">
-					<div class="modal-content">
-						<div class="modal-header justify-content-center">
-							<h6 class="modal-title">Estimated Pice for the service</h6>
-						</div>
-						<div class="modal-body">
-							<form action="../controller/addServiceRequestRespon.php" method="GET">
-								<div class="form-group has-placeholder">
-									<label for="name-sigin"></label>
-								
-								<input type="hidden" name ="servreqid" value = " <?php echo $_GET['id'];?>">
-									<strong>Total Price</strong> <input type="number" class="form-control" id="bid" placeholder="Bid" name="bid">
-								</div>
-								<div class="form-group has-placeholder">
-								<strong>Qoute</strong>
-								<textarea cols="30" rows="4.1" name="biddesc" id ="biddesc" placeholder="Details..."></textarea>
-							
-								</div>
-									<div class="modal-footer d-flex justify-content-center">
-										<button type="submit" name ="btnAddSr" class="btn btn-small btn-maincolor log-btn">Send Bid</button>
-									</div>
-							</form>
-							<br/>
-							<br/>
-							<br/>
-						
-							<div class="modal-footer d-flex justify-content-center">
-								
-								
-								
-								</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 ds s-overlay">
-					<img src="images/modal-login-form.jpg" alt="">
-				</div>
-			</div>
-		</div>
-	</div>
 
-
-				<!-- end of modal -->
 
 	<script src="js/compressed.js"></script>
 	<script src="js/main.js"></script>
@@ -487,3 +439,4 @@ session_start();
 
 
 </html>
+
