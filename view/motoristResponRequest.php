@@ -3,7 +3,6 @@ session_start();
   if(!isset($_SESSION['motorist'])){
     header("location:index.php");
   }
-include('../model/dbhelper.php');
 
  ?> 
 <!DOCTYPE html>
@@ -159,54 +158,7 @@ include('../model/dbhelper.php');
 												<a href="motoristProfile.php">Profile</a>
 											</li>
 
-									<!-- notification start -->
-								<?php
-									$row =Notification();
-								?>	
-  												<li>
-												  <div class="dropdown shop-card-dropdown">
-												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<i class="ico-shopping-bag"></i>
-													<span class="badge bg-maincolor">2</span>
-												</a>
-												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
-													<div class="widget woocommerce widget_shopping_cart">
-														<h4>Shopping<span class="text-gradient">Cart</span></h4>
-														<div class="widget_shopping_cart_content">
-
-															<ul class="product_list_widget">
-																<li>
-																	<a href="shop-product-right.html">
-																	
-																		<span class="product-title fw-500">shock absorber car</span>
-																	</a>
-																	<div class="d-flex justify-content-between shop-item">
-																		<p>Auto parts</p>
-																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
-																	</div>
-																	<div class="d-flex align-items-center">
-																		<div class="woocommerce-Price-amount amount">
-																			<span class="woocommerce-Price-currencySymbol">$</span>55.00
-																		</div>
-																	
-																	</div>
-																</li>
-																<li>
-																	<a href="shop-product-right.html">
-																	
-																	</a>
-																	<div class="d-flex justify-content-between shop-item">
-																		<p>Auto parts</p>
-																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
-																	</div>
-												
-																</li>
-															</ul>
-
-														</div>
-													</div>
-												  </li>
-									<!-- end -->
+								
 
 
 											<li>
@@ -226,33 +178,58 @@ include('../model/dbhelper.php');
 					<!-- header toggler -->
 
 					<span class="toggle_menu"><span></span></span>
-					<?php include("../controller/getalluser.php");?>
+			
 				</header>
-<!-- 
-				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
-					<div class="divider-3 d-none d-lg-block"></div>
-					<div class="container">
-						<div class="row">
 
-							<div class="col-md-12">
-								
-	
+
+
+		
+                <section class="ls s-pt-55 s-pb-35 s-pt-lg-145 s-pb-lg-140 s-parallax s-overlay comingsoon">
+				<div class="divider-40 d-none d-lg-block"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<h2 class="special-heading">
+								Mechanic's<span class="text-gradient">Qoute.</span>
+							</h2>
+							<style>
+								.center {
+									margin: auto;
+									width: 50%;
+									padding: 10px;
+									border: 2px solid #ccc;
+									background-color: #ffffff;
+								}
+
+								input[type=text] {
+									width: 50%;
+									margin: center;
+									padding: 12px 20px;
+									margin: 8px 0;
+									box-sizing: border-box;
+									color: #ff4e3c;
+								}
+							</style>
+							<div class="center">
+                                <form action="../controller/addmechanic.php" method="post">
+                                <?php 
+                                $ref_id = $_GET['id'];
+                             
+                                include('../controller/getIdSRR.php'); ?>
+                                    
+                                    <button type="submit" name="signup" class="btn btn-small btn-maincolor log-btn">Accept</button>
+                                    <a href="motoristDashboard.php"  class="btn btn-small btn-maincolor log-btn">Cancel</a>
 							</div>
-
+							<!-- <h6 class="mt-0">Stay Tuned!</h6>		
+							<div id="comingsoon-countdown"></div> -->
+							<!--
+					use "data-date" attribute with your date value to set date that you need to count to
+					<div id="comingsoon-countdown" data-date="March 29, 2018 10:00:00"></div>
+				-->
+			</form>
 						</div>
 					</div>
-				</section> -->
-
-
-
-			<section class="page_slider">
-				<div class="flexslider" data-nav="false" data-dots="true">
-					<ul class="slides">
-						<li class="ds bs cover-image flex-slide">
-							<!-- <span class="flexslider-overlay"></span> -->
-							<img src="images/slide01.jpg" alt="">
-							<div class="container">
-             </div>
+				</div>
 			</section>
 
 			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">

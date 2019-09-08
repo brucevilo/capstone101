@@ -209,7 +209,7 @@ session_start();
 								<div class="item-content">
 									<div class="divider-7"></div>
 									<div class="entry-meta item-meta color-darkgrey mb-20">
-										<i class="fa fa-calendar color-main"></i> <span><?php echo $rows['service_date'];?></span>
+										<i class="fa fa-calendar color-main"></i> <span><?php echo date('F j, Y, g:i a',strtotime($rows['service_date']));?></span>
 										<i class="fa fa-map-marker color-main"></i> <span><?php echo $rows['city'];?></span>
 										 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										
@@ -217,7 +217,7 @@ session_start();
 										
 										
 										 </span>
-										<a href='#modalQouteForm' data-toggle ='modal~'  class='btn btn-small btn-outline-maincolor btn-appointment' >Send Qoute</a> 
+										<a href='#modalQouteForm' data-toggle ='modal'  class='btn btn-small btn-outline-maincolor btn-appointment' >Send Qoute</a> 
 									</div>
 									<!-- .entry-meta -->
 									<hr>

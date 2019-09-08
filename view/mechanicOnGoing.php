@@ -1,10 +1,8 @@
 <?php
 session_start();
-  if(!isset($_SESSION['motorist'])){
+  if(!isset($_SESSION['mechanic'])){
     header("location:index.php");
   }
-include('../model/dbhelper.php');
-
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -147,72 +145,22 @@ include('../model/dbhelper.php');
 									<nav class="top-nav">
 										<ul class="nav sf-menu">
                                         <li class="active">
-												<a href="motoristDashboard.php">Service</a>
+												<a href="mechanicDashboard.php">Home</a>
 											
 											</li>
 
 											<li>
-												<a href="motoristVehicle.php">Vehicle</a>
+												<a href="mechanicOnGoing.php">On-Going-Work</a>
 											</li>
 										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="mechanicProfile.php">Profile</a>
 											</li>
-
-									<!-- notification start -->
-								<?php
-									$row =Notification();
-								?>	
-  												<li>
-												  <div class="dropdown shop-card-dropdown">
-												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<i class="ico-shopping-bag"></i>
-													<span class="badge bg-maincolor">2</span>
-												</a>
-												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
-													<div class="widget woocommerce widget_shopping_cart">
-														<h4>Shopping<span class="text-gradient">Cart</span></h4>
-														<div class="widget_shopping_cart_content">
-
-															<ul class="product_list_widget">
-																<li>
-																	<a href="shop-product-right.html">
-																	
-																		<span class="product-title fw-500">shock absorber car</span>
-																	</a>
-																	<div class="d-flex justify-content-between shop-item">
-																		<p>Auto parts</p>
-																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
-																	</div>
-																	<div class="d-flex align-items-center">
-																		<div class="woocommerce-Price-amount amount">
-																			<span class="woocommerce-Price-currencySymbol">$</span>55.00
-																		</div>
-																	
-																	</div>
-																</li>
-																<li>
-																	<a href="shop-product-right.html">
-																	
-																	</a>
-																	<div class="d-flex justify-content-between shop-item">
-																		<p>Auto parts</p>
-																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
-																	</div>
-												
-																</li>
-															</ul>
-
-														</div>
-													</div>
-												  </li>
-									<!-- end -->
-
-
+											<li>
 											<li>
 												<a href="logout.php">Logout</a>
 											<li>
-										
+							
 									</nav>
 									<!-- eof main nav -->
 
@@ -226,7 +174,7 @@ include('../model/dbhelper.php');
 					<!-- header toggler -->
 
 					<span class="toggle_menu"><span></span></span>
-					<?php include("../controller/getalluser.php");?>
+
 				</header>
 <!-- 
 				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">

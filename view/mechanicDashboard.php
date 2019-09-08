@@ -145,16 +145,16 @@ session_start();
 									<nav class="top-nav">
 										<ul class="nav sf-menu">
                                         <li class="active">
-												<a href="motoristDashboard.php">Home</a>
+												<a href="mechanicDashboard.php">Home</a>
 											
 											</li>
 
 											<li>
-												<a href="motoristVehicle.php">On-Going-Work</a>
+												<a href="mechanicOnGoing.php">On-Going-Work</a>
 											</li>
 										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="mechanicProfile.php">Profile</a>
 											</li>
 											<li>
 											<li>
@@ -173,7 +173,7 @@ session_start();
 
 					<!-- header toggler -->
 
-					<!-- <span class="toggle_menu"><span></span></span> -->
+					<span class="toggle_menu"><span></span></span>
 
 				</header>
 				<?php

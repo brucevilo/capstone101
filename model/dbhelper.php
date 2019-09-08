@@ -1,3 +1,4 @@
+
 <?php
 	//database abstraction
 	class DBHelper{
@@ -6,7 +7,7 @@
 		private $username='root';
 		private $password='';
 		private $database='mechanichero';
-		private $conn;
+		public $conn;
 		
 		function __construct(){
 			try{
@@ -14,6 +15,40 @@
 			}catch(PDOException $e){ echo $e->getMessage();}
 		}
 		
+		function Notification($ref_id)
+		{
+			$rows;
+			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request_respon.status = 'unread' && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
+			
+			try{
+				$stmt=$this->conn->prepare($sql);
+				$stmt->execute();
+				$rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+			}catch(PDOException $e){ echo $e->getMessage();}
+			return $rows;
+		}
+		function getSRRbyID($ref_id)
+		{
+			$sql = "SELECT * FROM $table WHERE $field_id = ?";
+			try{
+			$stmt = $this->conn->prepare($sql);
+			$stmt->execute(array($ref_id));
+			$row = $stmt->fetchall(PDO::FETCH_ASSOC);
+			}catch(PDOException $e){ echo $e->getMessage();}
+			return $row;
+		}
+		function Notification1($ref_id)
+		{
+			$rows;
+			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
+			
+			try{
+				$stmt=$this->conn->prepare($sql);
+				$stmt->execute();
+				$rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+			}catch(PDOException $e){ echo $e->getMessage();}
+			return $rows;
+		}
 		function login($email,$password)
 			{
 				$rows;

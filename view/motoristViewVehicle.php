@@ -127,7 +127,7 @@ session_start();
 
 
 				<!--eof topline-->
-<?php include("../")?>
+
 				<!-- header with single Bootstrap column only for navigation and includes. Used with topline and toplogo sections. Menu toggler must be in toplogo section -->
 				<header class="page_header s-py-10 s-py-lg-0 ds ms s-overlay nav-bordered justify-nav-center">
 					<div class="container-fluid">

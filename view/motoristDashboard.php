@@ -73,89 +73,8 @@ session_start();
 		-->
 
 		</div>
-	</div><!-- eof .modal -->
-
-	<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="modalLoginForm" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="row c-gutter-0">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span>×</span>
-				</button>
-				<div class="col-6">
-					<div class="modal-content">
-						<div class="modal-header justify-content-center">
-							<h4 class="modal-title">Add Service</h4>
-						</div>
-						<div class="modal-body">
-						<form action="../controller/addRequestService.php" method="get">
-					
-								<div class="form-group has-placeholder">
-						<?php
-						//   include("../controller/getallVehicle.php");							
-						echo "<span>Choose Car</span>";
-						echo "<select name = 'vehicle_plateno'>";
-					foreach($rows as $u){
-						echo "<option  value=".$u['vehicle_plateno'].">".$u['vehicle_plateno']."</option>";
-						
-					}
-					echo "</select>";
-				
-							?>
-								</div>
-								<div class="form-group has-placeholder">
-								Repair Date
-								<input type="date" class="form-control" id="request_date"  name="request_date" require>
-								</div>
-
-								<div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem8" name="service[]" id="service[]">problem1
-								<input type="checkbox" value = "problem9" name="service[]" id="service[]">problem1
-									</div>
-									<div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem1" name="service[]" id="service[]">problem 2
-								<input type="checkbox" value = "problem2" name="service[]" id="service[]">problem 2
-								</div>
-						
-						</div>
-					</div>
-				</div>
-				<div class="col-6">
-					<!-- <img src="images/modal-login-form.jpg" alt=""> -->
-					<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<br/>
-						<br/>	
-						</div>
-						<div class="modal-body">
-							
-						
-								
-								<div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem3" name="service[]" id="service">problem 3
-								<input type="checkbox" value = "problem4" name="service[]" id="problem1">problem 3
-										</div>
-								<div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem5" name="service[]" id="problem1">problem 4
-								<input type="checkbox" value = "problem6" name="service[]" id="problem1">problem 5
-								</div>
-						
-								<div class="form-group has-placeholder">
-								<textarea cols="30" rows="4.1" name="problems" id ="problems" placeholder="More specific..."></textarea>
-								</div>
-							
-								
-								<div class="form-group has-placeholder">
-									<button type="submit" on name ="btnVehicle" id ="btnVehicle" class="btn btn-small btn-maincolor log-btn">Add Service</button>
-								</div>
-								
-							</form>
-						</div>
-							</div>
-							</div>
-					<!-- end -->
-			<!-- location script -->
-
-				<!-- location end script -->
+	</div>
+			
 				</div>
 			</div>
 		</div>
@@ -269,11 +188,76 @@ session_start();
 											<li>
 												<a href="motoristProfile.php">Profile</a>
 											</li>
-											<li>
+						<?php include('../controller/getAllSRR.php')?>
+									<!-- notification start -->
+  												<li>
+												  <div class="dropdown shop-card-dropdown">
+												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<i class="ico-shopping-bag"></i>
+											<?php
+											  if(count($row1)>0){
+											?>		
+													<span class="badge bg-maincolor"><?php echo count($row1);?></span>
+												
+												</a>
+												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+												
+												<div class="widget woocommerce widget_shopping_cart">
+														<h4>Car<span class="text-gradient">Notification</span></h4>
+											<?php 
+											 foreach ($row as $rows){ 
+												  if($rows['status']=='unread'){?>	
+												 		
+														<div class="widget_shopping_cart_content">												
+														<?php echo "<a href='motoristResponRequest.php?id=".$rows['serve_post_respid']."'>";?>
+																	<small><i><?php echo date('F j, Y, g:i a',strtotime($rows['date']));?></i></small><br>
+																		<span class="product-title fw-500">Mr/Ms.<?php echo $rows['lastname'];?> response to your service request.</span>
+												  </b>
+																	</a>
+															
+																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
+																		
+																	</div>
+
+																		</div>
+											<?php
+												  }
+												else{
+											?>		
+														<div class="widget_shopping_cart_content">		
+																						
+														<?php		
+														echo "<a href='motoristResponRequest.php?id=".$rows['serve_post_respid']."'>";?>
+																	<small><i><?php echo date('F j, Y, g:i a',strtotime($rows['date']));?></i></small><br>
+																		<span class="">Mr/Ms. 	<?php echo $rows['lastname'];?> response to your service request.</span>
+																	
+																	</a>
+															
+																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
+																		
+																	</div>
+
+																		</div>
+																	
+											 <?php 
+												}
+												  }
+											 }
+											
+											 else {
+												 echo "No Notifications yet.";									 
+												}		
+											 ?>
+												</li>				
+
+												
+									<!-- end -->
+
+
 											<li>
 												<a href="logout.php">Logout</a>
 											<li>
-							
+										
 									</nav>
 									<!-- eof main nav -->
 
@@ -296,9 +280,9 @@ session_start();
 						<div class="row">
 
 							<div class="col-md-12">
-								<h1 class="bold text-center text-lg-left">Service </h1>
+								<h1 class="bold text-center text-lg-left">Service Response</h1>
 								<div class="d-none d-xl-block">
-											<a href="../view/motoristAddServiceReq.php" class="btn btn-small btn-outline-maincolor btn-appointment" >Add Service</a>
+											<!-- <a href="../view/motoristAddServiceReq.php" class="btn btn-small btn-outline-maincolor btn-appointment" >Add Service</a> -->
 										</div>
 	
 							</div>
@@ -318,49 +302,7 @@ session_start();
 							<!-- <span class="flexslider-overlay"></span> -->
 							<img src="images/slide01.jpg" alt="">
 							<div class="container">
-                                <br/> <br/> <br/> <br/> <br/> <br/> <br/>
-				<style>
-				table {
-					display: table;
-					border-collapse: separate;
-					border-spacing: 2px;
-					border-color: gray;
-					}
-				th
-				{	
-					background-color: #f5f5f5;
-					color: white;	
-				}	
-				</style>					
-			
-				<table  class="table-dark">
-					<thead>
-					
-                        <th>Plate Number</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>User Type</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					
-                   
-				</thead>	
-	<?php	
-			//  include('../controller/getallServiceRequest.php');
-			// 	foreach($rows as $u){
-			// 	echo "</tr>";	
-			// 	echo "<td>".$rows['vehicle_plateno']."</td>";
-			// 	echo "<td>".$u['service_date']."</td>";
-			// 	echo "<td>".$u['service']."</td>";
-			// 	echo "<td>".$u['problems']."</td>";
-			// 	echo "<td><strong><a href='edit.php?id=".$u['servreqid']."'>EDIT</a></strong></td>";
-			// 	echo "<td><strong><a href='edit.php?id=".$u['servreqid']."'>DELETE</a></strong></td>";
-			// 	echo "</tr>";
-			// 	}
-		 ?>
-		</table>
-
-                            </div>
+							</div> 
 				</div> 
 <!-- Modal edit -->
 

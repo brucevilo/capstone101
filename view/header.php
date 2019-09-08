@@ -3,8 +3,6 @@ session_start();
   if(!isset($_SESSION['motorist'])){
     header("location:index.php");
   }
-include('../model/dbhelper.php');
-
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -49,7 +47,39 @@ include('../model/dbhelper.php');
 		<div class=""></div>
 	</div>
 
-	
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="http://webdesign-finder.com/">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Search</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- wrappers for visual page editor and boxed version of template -->
 	<div id="canvas">
@@ -160,9 +190,6 @@ include('../model/dbhelper.php');
 											</li>
 
 									<!-- notification start -->
-								<?php
-									$row =Notification();
-								?>	
   												<li>
 												  <div class="dropdown shop-card-dropdown">
 												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -170,14 +197,15 @@ include('../model/dbhelper.php');
 													<span class="badge bg-maincolor">2</span>
 												</a>
 												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
-													<div class="widget woocommerce widget_shopping_cart">
-														<h4>Shopping<span class="text-gradient">Cart</span></h4>
+							<?php include("../controller/getalluser.php");?>
+												<div class="widget woocommerce widget_shopping_cart">
+														<h4>Car<span class="text-gradient">Notification</span></h4>
 														<div class="widget_shopping_cart_content">
 
 															<ul class="product_list_widget">
 																<li>
 																	<a href="shop-product-right.html">
-																	
+																		<small><i>January 17 ,2017</i></small><br/>
 																		<span class="product-title fw-500">shock absorber car</span>
 																	</a>
 																	<div class="d-flex justify-content-between shop-item">
@@ -213,77 +241,10 @@ include('../model/dbhelper.php');
 												<a href="logout.php">Logout</a>
 											<li>
 										
-									</nav>
-									<!-- eof main nav -->
-
-
-								</div>
-
-							</div>
-						</div>
-					</div>
-
-					<!-- header toggler -->
-
-					<span class="toggle_menu"><span></span></span>
-					<?php include("../controller/getalluser.php");?>
-				</header>
-<!-- 
-				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
-					<div class="divider-3 d-none d-lg-block"></div>
-					<div class="container">
-						<div class="row">
-
-							<div class="col-md-12">
-								
-	
-							</div>
-
-						</div>
-					</div>
-				</section> -->
-
-
-
-			<section class="page_slider">
-				<div class="flexslider" data-nav="false" data-dots="true">
-					<ul class="slides">
-						<li class="ds bs cover-image flex-slide">
-							<!-- <span class="flexslider-overlay"></span> -->
-							<img src="images/slide01.jpg" alt="">
-							<div class="container">
-             </div>
-			</section>
-
-			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">
-				<div class="container">
-					<div class="divider-2 d-none d-lg-block"></div>
-					<div class="row align-items-center">
-						<div class="divider-20 d-none d-lg-block"></div>
-
-						<div class="col-md-12 text-center">
-							<p class="social-icons with-border">
-								<span><a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
-								<span><a href="https://telegram.org/" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
-								<span><a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
-							</p>
-							<p><a target="_blank" href="https://templateshub.net">Mechanic Hero</a></p>
-						</div>
-						<div class="divider-20 d-none d-lg-block"></div>
-					</div>
-				</div>
-			</section>
-
-
-		</div><!-- eof #box_wrapper -->
-	</div><!-- eof #canvas -->
-
-
-	<script src="js/compressed.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/switcher.js"></script>
-
-</body>
-
-
-</html>
+                                    </nav>
+                            <body>
+                                
+                            </body>
+                                        
+                                  
+                                    </html>
