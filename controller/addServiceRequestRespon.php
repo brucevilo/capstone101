@@ -19,10 +19,7 @@ if($service_req_respons>0)
     {
         echo "<script>alert('Service Request Failed');window.location='../view/mechanicDashboard.php'</script>";
     }
+ 
 }
-else {
-    
-}
-
 
 ?>
