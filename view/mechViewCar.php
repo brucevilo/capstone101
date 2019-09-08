@@ -190,9 +190,10 @@ session_start();
 
 
 			</div>
-			?>
-<?php include("../controller/getAllSr.php");
-		foreach ($rows as $row){
+		
+<?php
+ include("../controller/getSingleSr.php");
+	
 		
 	?>
 
@@ -202,30 +203,30 @@ session_start();
 						<main class="offset-lg-1 col-lg-10">
 							<article class="vertical-item post type-event status-publish format-standard has-post-thumbnail events-post single-post">
 								<div class="item-media post-thumbnail rounded-top">
-								<?php echo	"<img src='../controller/images/".$row['vehicle_image']."'>"; ?>
+								<?php echo	"<img src='../controller/images/".$rows['vehicle_image']."'>"; ?>
 								</div>
 								
 								<div class="item-content">
 									<div class="divider-7"></div>
 									<div class="entry-meta item-meta color-darkgrey mb-20">
-										<i class="fa fa-calendar color-main"></i> <span><?php echo $row['service_date'];?></span>
-										<i class="fa fa-map-marker color-main"></i> <span><?php echo $row['city'];?></span>
+										<i class="fa fa-calendar color-main"></i> <span><?php echo $rows['service_date'];?></span>
+										<i class="fa fa-map-marker color-main"></i> <span><?php echo $rows['city'];?></span>
 										 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										
+										
+										
 										
 										 </span>
-										<a href='motoristAddServiceReq.php?i'  class='btn btn-small btn-outline-maincolor btn-appointment' >Send Qoute</a> 
+										<a href='#modalQouteForm' data-toggle ='modal~'  class='btn btn-small btn-outline-maincolor btn-appointment' >Send Qoute</a> 
 									</div>
 									<!-- .entry-meta -->
 									<hr>
 
 									<div class="entry-content">
 										<p class="excerpt">
-											<span><h6>	Car Brand: <?php echo strtoupper($row['vehicle_brand']);?>
+											<span><h6>	Car Brand: <?php echo strtoupper($rows['vehicle_brand']);?>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											Car Model :<?php echo strtoupper($row['vehicle_model']);?>
+											Car Model :<?php echo strtoupper($rows['vehicle_model']);?>
 											</h6></span>
 										</p>
 
@@ -255,7 +256,7 @@ session_start();
 								</div>
 								<!-- .item-content -->
 							</article>
-		<?php }?>
+
 
 							<div id="comments" class="post-comments comments-area rounded">
 								<h4 id="reply-title" class="fw-700 comment-reply-title">Car<span class="text-gradient">History</span></h4>
@@ -428,6 +429,54 @@ session_start();
 					</div>
 				</div>
 			</section>
+<!-- modal-->
+<div class="modal fade" id="modalQouteForm" tabindex="-1" role="dialog" aria-labelledby="modalLoginForm" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="row c-gutter-0">
+			<form action="../controller/addServiceRequestRespon.php" method="get"></form>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span>×</span>
+				</button>
+				<div class="col-6">
+					<div class="modal-content">
+						<div class="modal-header justify-content-center">
+							<h6 class="modal-title">Estimated Pice for the service</h6>
+						</div>
+						<div class="modal-body">
+							<form action="../controller/addServiceRequestRespon.php" method="GET">
+								<div class="form-group has-placeholder">
+									<label for="name-sigin"></label>
+
+								<input type="hidden" name ="servreqid" value = " <?php echo $_GET['id'];?>">
+									<strong>Total Price</strong> <input type="number" class="form-control" id="bid" placeholder="Bid" name="bid">
+								</div>
+								<div class="form-group has-placeholder">
+								<strong>Qoute</strong>
+								<textarea cols="30" rows="4.1" name="biddesc" id ="biddesc" placeholder="Details..."></textarea>
+
+								</div>
+									<div class="modal-footer d-flex justify-content-center">
+										<button type="submit" name ="btnAddSr" class="btn btn-small btn-maincolor log-btn">Send Bid</button>
+									</div>
+							</form>
+							<br/>
+							<br/>
+							<br/>
+
+							<div class="modal-footer d-flex justify-content-center">
+
+
+
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 ds s-overlay">
+					<img src="images/modal-login-form.jpg" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 

@@ -173,7 +173,7 @@ session_start();
 
 					<!-- header toggler -->
 
-					<span class="toggle_menu"><span></span></span>
+					<!-- <span class="toggle_menu"><span></span></span> -->
 
 				</header>
 				<?php
@@ -218,7 +218,7 @@ session_start();
                                         // echo "</span>";
 										echo "</div>";
                                         // echo  strtoupper(" <span>".$row['vehicle_service']."</span></h6>");
-										echo "</p>.";
+										echo "</p>";
 										echo "</p>";
 
 									echo"	</div>

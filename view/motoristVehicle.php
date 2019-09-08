@@ -332,23 +332,23 @@ $(document).ready(function{
 
             echo " <article class='post side-item text-center text-md-left content-padding bordered event-post'>";
             echo "<div class='row'>";
-			// echo "<div class='col-xl-3 col-lg-3 col-md-3'>";
-			// 							echo "<div class='item-media cover-image'>";
+			echo "<div class='col-xl-3 col-lg-3 col-md-3'>";
+										echo "<div class='item-media cover-image'>";
 										
-			// 							echo "<img src='../controller/images/".$row['vehicle_image']."' alt=''>";
-			// 							// echo "<img src='../controller/images/9383-car-repair-362150_960_720.jpg alt=''>";
-			// 							// echo "img src='../controller/images/".$row['vehicle_imaged'];
-									// 	echo "<div class='media-links'>";
-									// 	echo "<a class='abs-link' title='' href='moto3.php?id=".$row['probl']."'></a>";	
-									// echo "		</div>";
-                                //     </div>
-                                // </div>";
+										echo "<img src='../controller/images/".$row['vehicle_image']."' alt=''>";
+										// echo "<img src='../controller/images/9383-car-repair-362150_960_720.jpg alt=''>";
+										// echo "img src='../controller/images/".$row['vehicle_imaged'];
+										echo "<div class='media-links'>";
+										echo "<a class='abs-link' title='' href='moto3.php?id=".$row['vehicleid']."'></a>";	
+									echo "		</div>
+                                    </div>
+                                </div>";
 
 									echo "<div class='col-xl-7 col-lg-6 col-md-5'>";
 									echo "<div class='divider-11 d-none d-xl-block'></div>";
                                     echo "	<div class='item-content'>
                                               <h4>";
-                                    echo $row['vehicle_plateno'];
+                                    echo "<a href='moto3.php?id=".$row['vehicleid']."'>".$row['vehicle_plateno'].
 
                                     "</a> 	</h4>";
                                     

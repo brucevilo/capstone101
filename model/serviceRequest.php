@@ -13,6 +13,7 @@ class ServiceRequest
 
         // var_dump($this->fieldnames); die;
     function __construct()	{	$this->dbconn=new DBHelper();}
+    function getSinlgeSr($ref_id,$ref_field){ return $this->dbconn->getSingleService($ref_id,$ref_field);}
     function getAllSr(){return $this->dbconn->getAllService(); }
     function getAllServiceRequest($ref_id,$field_id)	{	return $this->dbconn->getRecordById($this->table,$ref_id,$field_id);}	
     function createServiceRequest($data) { return $this->dbconn->insertRecord($this->table,$this->fieldnames,$data);}

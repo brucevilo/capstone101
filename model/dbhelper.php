@@ -79,6 +79,19 @@
 			}catch(PDOException $e){ echo $e->getMessage();}
 			return $rows;
 		}
+
+		
+		function getSingleService($ref_id,$field_id){
+			$rows;
+			$sql="SELECT * FROM vehicle, service_request WHERE service_request.vehicle_plateno = vehicle.vehicle_plateno && $field_id = $ref_id";
+	
+			try{
+				$stmt=$this->conn->prepare($sql);
+				$stmt->execute();
+				$rows=$stmt->fetch(PDO::FETCH_ASSOC);
+			}catch(PDOException $e){ echo $e->getMessage();}
+			return $rows;
+		}
 		function insertRecord($table,$fieldnames,$data){
 			
 				$fld=implode(",",$fieldnames);
