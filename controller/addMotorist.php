@@ -21,7 +21,7 @@ if ($cpass != $password)
 }    
 else if($password< 7 )
 {
-    echo "<script>alert('Password must be 6 character or more!');windw.location='../view/motoristRegistration.php'</script>";
+    echo "<script>alert('Password must be 6 character or more!');window.location='../view/motoristRegistration.php'</script>";
 }
 else {
 // $data =array('lastname'=>$lastname,'firstname' => $firstname,'email' => $email, 

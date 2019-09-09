@@ -1,9 +1,9 @@
 <?php
 session_start();
-  if(!isset($_SESSION['motorist'])){
-    header("location:index.php");
-  }
-include('../model/dbhelper.php');
+//   if(!isset($_SESSION['motorist'])){
+//     header("location:index.php");
+// //   }
+// include('../model/dbhelper.php');
 
  ?> 
 <!DOCTYPE html>
@@ -160,10 +160,7 @@ include('../model/dbhelper.php');
 											</li>
 
 									<!-- notification start -->
-								<?php
-									$row =Notification();
-								?>	
-  												<li>
+										<li>
 												  <div class="dropdown shop-card-dropdown">
 												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													<i class="ico-shopping-bag"></i>

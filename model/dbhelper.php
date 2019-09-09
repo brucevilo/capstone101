@@ -18,7 +18,7 @@
 		function Notification($ref_id)
 		{
 			$rows;
-			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request_respon.status = 'unread' && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
+			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request_respon.status = 'unread' && service_request.motoristid = $ref_id order by date";
 			
 			try{
 				$stmt=$this->conn->prepare($sql);
@@ -40,7 +40,7 @@
 		function Notification1($ref_id)
 		{
 			$rows;
-			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
+			$sql="SELECT DISTINCT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.status = 'unread' && service_request.motoristid = $ref_id order by date";
 			
 			try{
 				$stmt=$this->conn->prepare($sql);
@@ -105,8 +105,8 @@
 
 		function getAllService(){
 			$rows;
-			$sql="SELECT * FROM vehicle, service_request WHERE service_request.service_status = 'Pending' && service_request.vehicle_plateno = vehicle.vehicle_plateno";
-		
+			$sql="SELECT * FROM vehicle, service_request WHERE service_request.service_status = 'Pending'&& service_request.vehicleid = vehicle.vehicleid";
+			// echo $sql; die;
 			try{
 				$stmt=$this->conn->prepare($sql);
 				$stmt->execute();
@@ -118,8 +118,8 @@
 		
 		function getSingleService($ref_id,$field_id){
 			$rows;
-			$sql="SELECT * FROM vehicle, service_request WHERE service_request.vehicle_plateno = vehicle.vehicle_plateno && $field_id = $ref_id";
-	
+			$sql="SELECT * FROM vehicle, service_request WHERE service_request.vehicleid = vehicle.vehicleid  && $field_id = $ref_id";
+			// echo $sql; die;
 			try{
 				$stmt=$this->conn->prepare($sql);
 				$stmt->execute();

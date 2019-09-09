@@ -223,29 +223,25 @@ session_start();
 
                             <?php
 						  include("../controller/getallVehicle.php");							
-						echo "<span>Choose Car</span>";
-						echo "<select name = 'vehicle_plateno'>";
-					foreach($rows as $u){
-						echo "<option  value=".$u['vehicle_plateno'].">".$u['vehicle_plateno']."</option>";
+						echo "<span>Car Plate No. <h6>".$_GET['plateno']."</span></h6>";
 						
-					}
-					echo "</select>";
 				
 							?>
-				<br/>
+				<br/>			
+							<input type="hidden" class="form-control" id="vehicleid "  name="vehicleid" value="<?php echo $_GET['id'];?>" >
 								<div class="form-group has-placeholder">
 							
 								<input type="date" class="form-control" id="request_date"  name="request_date" require>
 								</div>
                        
 								<div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem1" name="service[]" id="service[]">problem1
+								<input type="checkbox" value = "Warning Lights" name="service[]" id="service[]">Warning Lights
                                 <!-- </div>
                                 <div class="form-group has-placeholder"> -->
-								<input type="checkbox" value = "problem2" name="service[]" id="service[]">problem2
+								<input type="checkbox" value = "Dead Battery" name="service[]" id="service[]">Dead Battery
                                 </div>
                                 <div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem3" name="service[]" id="service[]">problem3
+								<input type="checkbox" value = "Flat Tires" name="service[]" id="service[]">Flat Tires
                                 <!-- </div>
                                 <div class="form-group has-placeholder"> -->
 								<input type="checkbox" value = "problem4" name="service[]" id="service[]">problem4

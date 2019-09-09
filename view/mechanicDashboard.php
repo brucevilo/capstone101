@@ -176,8 +176,15 @@ session_start();
 					<span class="toggle_menu"><span></span></span>
 
 				</header>
+				<section class="page_slider">
+				<!-- <div class="flexslider" data-nav="false" data-dots="true">
+					<ul class="slides">
+						<li class="ds bs cover-image flex-slide">
+						
+							<img src="images/slide01.jpg" alt="">
+							<div class="container"> -->
 				<?php
-            include('../controller/getallSR.php');
+            include('../controller/getAllSr.php');
           
             			
             foreach($rows as $row){
@@ -230,6 +237,9 @@ session_start();
                 </div> ";
             }
                 ?>
+
+             <!-- </div>
+			</section> -->
 
 
 			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">

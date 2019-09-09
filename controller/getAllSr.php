@@ -1,10 +1,12 @@
 <?php
 	///mechanic controller
 	include('../model/serviceRequest.php');
-	$sr=new ServiceRequest();
+    $sr=new ServiceRequest();
+    $ref_id= "Pending";
+    $field_id = "status";
     
     $rows= $sr->getAllSr();
-    // var_dump($rows); die;
+    // print_r($rows); die;
    
         
  

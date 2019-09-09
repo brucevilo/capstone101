@@ -349,7 +349,8 @@ $(document).ready(function{
 									echo "<div class='divider-11 d-none d-xl-block'></div>";
                                     echo "	<div class='item-content'>
                                               <h4>";
-                                    echo "<a href='moto3.php?id=".$row['vehicleid']."'>".$row['vehicle_plateno'].
+									echo "<a href='moto3.php?id=".$row['vehicleid']."'>".$row['vehicle_plateno'];
+							
 
                                     "</a> 	</h4>";
                                     
@@ -362,14 +363,14 @@ $(document).ready(function{
 										// echo "</span>
 										// 		<span>";
                                         echo  strtoupper("Model :".$row['vehicle_model']."</span></h6>");
-                                        echo  strtoupper("<h7>Registration No. :".$row['vehicle_regno']."</span><br/>");
-										echo  strtoupper("Status :".$row['status']."</span></h7><br/>");
-										echo "<a href='motoristAddServiceReq.php?id='".$row['vehicleid']."'  class='btn btn-small btn-outline-maincolor btn-appointment' >Add Service</a>";
+                                        // echo  strtoupper("<h7>Registration No. :".$row['vehicle_regno']."</span><br/>");
+										// echo  strtoupper("Status :".$row['status']."</span></h7><br/>");
+										echo "<a href='motoristAddServiceReq.php?id=".$row['vehicleid']."& plateno=".$row['vehicle_plateno']."'  class='btn btn-small btn-outline-maincolor btn-appointment' >Add Service</a>";
 
                                         // echo "</span>";
 										echo "</div>";
                                         // echo  strtoupper(" <span>".$row['vehicle_service']."</span></h6>");
-										echo "</p>.";
+										echo "</p>";
 										echo "</p>";
 
 									echo"	</div>

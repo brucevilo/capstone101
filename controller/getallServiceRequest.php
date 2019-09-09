@@ -6,8 +6,6 @@
 	$field_id = "motoristEmail";
 	$row=$sr->getAllServiceRequest($ref_id,$field_id);
     // echo json_encode(array('user'=>$row));
-    
-	
 	// function getAll(){
 	// 	global $row;
 	// 	return $row;

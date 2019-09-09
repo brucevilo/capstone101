@@ -13,8 +13,7 @@ $addrDetailsArr = unserialize(file_get_contents($geopluginURL));
 //get country name by return array
 $country = $addrDetailsArr['geoplugin_countryName'];
 
-$vehicle_plateno= $_GET['vehicle_plateno'];
-
+$vehicleid= $_GET['vehicleid'];
 $motorist_email = $_SESSION['motorist'];
 $request_date="now()";
 $city =$_GET['city'];
@@ -22,7 +21,7 @@ $service_date=$_GET['request_date'];
 $problems =$_REQUEST['problems'];
 $services = $_GET['service'];
 $service = implode(',',$services);
-// for each value
+
 for($i = 0;count($services)<$i;$i++){
     
     // put insert query and value of selected price
@@ -32,13 +31,13 @@ $latlang =$addrDetailsArr['geoplugin_latitude'].",".$addrDetailsArr['geoplugin_l
 
 $service_status="Pending";
 $status = "1"; 
-$data = [$vehicle_plateno,$motorist_email,$service_date,$problems,$service,
+$data = [$vehicleid,$motorist_email,$service_date,$problems,$service,
         $latlang,$city,$service_status,$status];
 $row=$sr->createServiceRequest($data);
 
 if($row>0)
 {
-    echo "<script>alert('Service Added');window.location='../view/motoristDashboard.php'</script>";
+    echo "<script>alert('Service added please wait for the mechanics to responce.');window.location='../view/motoristDashboard.php'</script>";
 }
 else
 {

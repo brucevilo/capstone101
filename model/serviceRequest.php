@@ -6,7 +6,7 @@ class ServiceRequest
     private $table="service_request";
     private $table2="vehicle";
     private $field_id ="servreqid";
-    private $fieldnames=["vehicle_plateno","motoristid","service_date",
+    private $fieldnames=["vehicleid","motoristid","service_date",
                         "problems","service","latlang","city","service_status","status"];
     private $dbconn;
 

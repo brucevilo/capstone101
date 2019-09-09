@@ -20,7 +20,7 @@
 
 
 <head>
-	<title>CandyCar - Repair, Towing, Tuning SinglePage and MultePage HTML template</title>
+	<title>Mechanic Hero - Car First Aid</title>
 	<meta charset="utf-8">
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -292,7 +292,7 @@
 												<div class="divider-20 d-none d-lg-block d-xl-none"></div>
 												<div class="intro_layer" data-animation="fadeInDown">
 													<h2 class="text-uppercase intro_featured_word">
-														<span class="color-main">Full</span>
+														<span class="color-main">First Aid</span>
 														<span class="flex-gradient">
 															<span id="typed-strings">
 																<span>Collision</span>
@@ -310,9 +310,9 @@
 												</div>
 												<div class="intro_layer" data-animation="fadeInDown">
 													<ul class="list1">
-														<li>Complete Restoration Available</li>
-														<li>9 Foot Tall Spray Booth</li>
-														<li>Can Paint & Repair Sprinter Vans</li>
+														<li>Booking Service</li>
+														<li>Service Estimated Qoute</li>
+														<li>Trusted Mechanics</li>
 														<li>We Work with Insurance Companies</li>
 													</ul>
 												</div>
@@ -1113,47 +1113,7 @@
 				</div>
 			</section>
 
-			<section class="ls s-py-55 s-py-lg-75" id="partners">
-				<div class="container-fluid">
-					<div class="divider-3"></div>
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<div class="owl-carousel partners-carousel" data-center="true" data-loop="true" data-responsive-lg="10" data-responsive-md="6" data-responsive-sm="4" data-responsive-xs="3">
-								<a href="#">
-									<img src="images/partners/01.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/02.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/03.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/04.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/05.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/06.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/07.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/08.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/09.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/10.png" alt="">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+		
 
 			<footer class="page_footer text-center text-md-left ds ms s-pt-65 s-pt-lg-125 s-pb-lg-35 c-gutter-40 main-footer">
 				<div class="container">
